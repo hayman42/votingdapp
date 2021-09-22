@@ -1,9 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  // Pot money
+  // bet 글자 선택 UI
+  // Bet button
   return (
     <div className="App">
+      <div className="container">
+        <div className="jumbotron">Lottery</div>
+      </div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
