@@ -1,31 +1,44 @@
+import React, { Component } from "react";
 import logo from "./logo.svg";
-import "./App.css";
+import styles from "./App.module.css";
+import Web3 from "web3";
 
-function App() {
-  // Pot money
-  // bet 글자 선택 UI
-  // Bet button
-  return (
-    <div className="App">
-      <div className="container">
-        <div className="jumbotron">Lottery</div>
+class App extends Component {
+  async componentWillMount() {
+    await this.loadWeb3();
+    await this.loadBlockchainData();
+  }
+
+  async loadWeb3() {
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum);
+      await window.ethereum.enable();
+    } else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider);
+    } else {
+      window.alert(
+        "Non-Ethereum browser detected. You should consider trying MetaMask!"
+      );
+    }
+  }
+
+  async loadBlockchainData() {
+    const web3 = window.web3;
+
+    const accounts = await web3.eth.getAccounts();
+    console.log(accounts);
+
+    this.setState({ account: accounts[0] });
+    // Smart Contract Code를 여기다가 연결시키면 된다!
+  }
+
+  render() {
+    return (
+      <div className={styles.button}>
+        <span className={styles.text}>Happy Day!</span>
       </div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
