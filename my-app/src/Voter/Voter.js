@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import styles from "./App.module.css";
+import styles from "./Voter.module.css";
 import Web3 from "web3";
 
-class App extends Component {
+class Voter extends Component {
   async componentWillMount() {
     await this.loadWeb3();
     await this.loadBlockchainData();
@@ -35,10 +34,10 @@ class App extends Component {
   render() {
     return (
       <div className={styles.button}>
-        <span className={styles.text}>Happy Day!</span>
+        <span className={styles.text}>Nice React!</span>
       </div>
     );
   }
 }
 
-export default App;
+export default Voter;
