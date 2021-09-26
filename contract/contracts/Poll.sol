@@ -20,8 +20,8 @@ contract Poll {
 
     function vote(uint256 poll, bytes32 name) public {
         PollInfo storage p = _polls[poll];
-        require(p.open == true);
-        require(checkCandidate(poll, name));
+        require(p.open == true, "the poll is not open");
+        require(checkCandidate(poll, name), "invalid candidate name");
         p.counts[name] += 1;
     } // 유저가 vote 하는 함수
 

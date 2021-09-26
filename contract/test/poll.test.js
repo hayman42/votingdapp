@@ -7,9 +7,9 @@ contract("Poll", ([deployer, user1, user2]) => {
     });
 
     it("should return res", async () => {
-        let arg = ["a", "b", "c"].map(x => web3.utils.toHex(x));
+        let arg = ["aa", "bb", "cc"].map(x => web3.utils.toHex(x));
         await poll.makePoll(arg, { from: deployer });
-        await poll.vote(0, web3.utils.toHex("b"), { from: user1 });
+        await poll.vote(0, web3.utils.toHex("a"), { from: user1 });
         let res = await poll.getResult(0, { from: deployer });
         console.log(res[1]);
     });
