@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Req } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { registerRequestDto } from './dto/register.request.dto';
 import { signInRequestDto } from './dto/signin.request.dto';
@@ -18,7 +18,7 @@ export class AuthController {
     }
 
     @Get("checkname")
-    async checkName(@Query("name") name: String): Promise<Boolean> {
+    async checkName(@Query("name") name: string): Promise<Boolean> {
         return await this.authService.checkName(name);
     }
 }

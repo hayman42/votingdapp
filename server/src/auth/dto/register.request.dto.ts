@@ -1,8 +1,8 @@
 export class registerRequestDto {
-    readonly name: String;
-    readonly password: String;
-    readonly address: String;
-    constructor(name: String, password: String, address: String) {
+    readonly name: string;
+    readonly password: string;
+    readonly address: string;
+    constructor(name: string, password: string, address: string) {
         this.name = name;
         this.password = password;
         this.address = address;
