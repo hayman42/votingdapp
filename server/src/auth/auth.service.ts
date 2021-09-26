@@ -21,7 +21,7 @@ export class AuthService {
         return true;
     }
 
-    async checkName(name: String): Promise<Boolean> {
+    async checkName(name: string): Promise<Boolean> {
         const result = await this.userModel.findOne({ name: name }).exec();
         return result != null;
     }

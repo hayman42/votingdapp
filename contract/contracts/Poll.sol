@@ -34,10 +34,10 @@ contract Poll {
         _tail++;
     } // 새로운 여론조사를 만드는 함수
 
-    function closePoll(uint256 poll) public {
+    function setPollStatus(uint256 poll, bool open) public {
         require(msg.sender == owner, "this method is for owner only");
-        _polls[poll].open = false;
-    } // 특정 조사를 close 하는 함수
+        _polls[poll].open = open;
+    } // 특정 조사의 상태를 변환하는 함수
 
     function getResult(uint256 poll)
         public
