@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
 import "./index.css";
 import Voter from "./Voter/Voter";
-import Manager from "./Manager/Manager";
+
 // import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <Voter />
-    <Manager />
   </React.StrictMode>,
   document.getElementById("root")
 );
