@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 export default function Login() {
   return (
     <>
-      <h1> Welcome to the Voting dApp</h1>
+      <h1 className={styles.header}> Welcome to the Voting dApp</h1>
       <div className={styles.login}>
         <Box
           component="form"

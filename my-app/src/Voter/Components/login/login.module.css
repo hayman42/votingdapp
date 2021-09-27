@@ -1,0 +1,18 @@
+@value votingLightGrey from '../../common/colors.css';
+@value votingBlue from '../../common/colors.css';
+
+.header {
+  width: 50%;
+  text-align: left;
+  margin: 0;
+  padding: 1em;
+  background-color: votingLightGrey;
+}
+
+.name {
+  display: flex;
+}
+
+.confirm {
+  margin-left: 9.7em;
+}
