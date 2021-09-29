@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Voter.module.css";
 import Login from "./Components/login/login";
 import Poll_list from "./Components/poll_list/poll_list";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";

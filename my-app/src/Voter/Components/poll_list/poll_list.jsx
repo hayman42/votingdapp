@@ -1,10 +1,12 @@
 import React from "react";
+import Header from "../login/header";
 import styles from "./poll_list.module.css";
 
 export default function Poll_list() {
   return (
-    <>
-      <h1 className={styles.header}> Welcome to the Voting dApp</h1>
-    </>
+    <section className="pollList">
+      <Header />
+      <h1 className={styles.contents}> Poll List</h1>
+    </section>
   );
 }
