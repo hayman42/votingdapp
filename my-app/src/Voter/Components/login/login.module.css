@@ -1,5 +1,4 @@
-@value votingLightGrey from '../../common/colors.css';
-@value votingBlue from '../../common/colors.css';
+@value votingLightGrey from '../../../common/colors.css';
 
 .header {
   width: 50%;
