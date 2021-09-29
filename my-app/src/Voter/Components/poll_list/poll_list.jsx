@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./poll_list.module.css";
 
-function Poll_list() {
-  return <div></div>;
+export default function Poll_list() {
+  return (
+    <>
+      <h1 className={styles.header}> Welcome to the Voting dApp</h1>
+    </>
+  );
 }
-
-export default Poll_list;

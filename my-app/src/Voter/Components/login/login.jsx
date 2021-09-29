@@ -6,8 +6,10 @@ import SendIcon from "@mui/icons-material/Send";
 
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import { useHistory } from "react-router";
 
 export default function Login() {
+  const history = useHistory();
   return (
     <>
       <h1 className={styles.header}> Welcome to the Voting dApp</h1>
@@ -31,6 +33,9 @@ export default function Login() {
           className={styles.confirm}
           variant="contained"
           endIcon={<SendIcon />}
+          onClick={() => {
+            history.push("/poll_list");
+          }}
         >
           Confirm
         </Button>
