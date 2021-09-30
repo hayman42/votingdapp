@@ -8,17 +8,22 @@ export class AuthController {
     constructor(private readonly authService: AuthService) { }
 
     @Get("signin")
-    async signIn(@Query() requestDto: signInRequestDto): Promise<Boolean> {
+    async signIn(@Query() requestDto: signInRequestDto): Promise<boolean> {
         return await this.authService.signIn(requestDto);
     }
 
     @Get("register")
-    async register(@Query() requestDto: registerRequestDto): Promise<Boolean> {
+    async register(@Query() requestDto: registerRequestDto): Promise<boolean> {
         return await this.authService.register(requestDto);
     }
 
     @Get("checkname")
-    async checkName(@Query("name") name: string): Promise<Boolean> {
+    async checkName(@Query("name") name: string): Promise<boolean> {
         return await this.authService.checkName(name);
+    }
+
+    @Get("isdeployer")
+    isDeployer(@Query("address") address: string): boolean {
+        return this.authService.isDeployer(address);
     }
 }

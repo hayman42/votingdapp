@@ -1,4 +1,5 @@
 import { Controller, Get, Query } from '@nestjs/common';
+import { makePollRequestDto } from './dto/makepoll.request.dto';
 import { setStatusRequestDto } from './dto/setstatus.request.dto';
 import { voteRequestDto } from './dto/vote.request.dto';
 import { PollService } from './poll.service';
@@ -8,13 +9,13 @@ export class PollController {
     constructor(private readonly pollService: PollService) { }
 
     @Get("list")
-    async list(): Promise<[string[], boolean][]> {
+    async list(): Promise<[string[], string, boolean][]> {
         return await this.pollService.getPollList();
     }
 
     @Get("make")
-    async make(@Query('candidates') candidates: string[]): Promise<string> {
-        return await this.pollService.makePoll(candidates);
+    async make(@Query() requestDto: makePollRequestDto): Promise<string> {
+        return await this.pollService.makePoll(requestDto);
     }
 
     @Get("vote")
