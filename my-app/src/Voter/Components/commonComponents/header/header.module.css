@@ -1,0 +1,14 @@
+@value votingLightGrey, votingDarkGrey, votingWhite from '../../../../common/colors.css';
+
+/* Header Components */
+.header {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0.5em;
+}
+
+.title {
+  margin: 0;
+  color: votingBlack;
+}
