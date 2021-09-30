@@ -8,6 +8,7 @@ function QuestionPage() {
   return (
     <section className={styles.questionPage}>
       <Header />
+      {/* API에서 가져온 데이터로 화면 구성 */}
       <Question />
       <Answer />
     </section>

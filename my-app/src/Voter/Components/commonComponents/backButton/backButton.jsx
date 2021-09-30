@@ -7,7 +7,7 @@ import SendIcon from "@mui/icons-material/Send";
 
 import { useHistory } from "react-router";
 
-function BackButton() {
+export default function BackButton() {
   const history = useHistory();
   return (
     <div>
@@ -24,5 +24,3 @@ function BackButton() {
     </div>
   );
 }
-
-export default BackButton;

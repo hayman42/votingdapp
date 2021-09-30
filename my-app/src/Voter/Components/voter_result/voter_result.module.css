@@ -1,5 +1,6 @@
 .win {
   width: 50%;
+  justify-items: center;
   text-align: center;
   background-color: thistle;
 }
