@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppModule } from 'src/app.module';
+import { makePollRequestDto } from './dto/makepoll.request.dto';
 import { setStatusRequestDto } from './dto/setstatus.request.dto';
 import { voteRequestDto } from './dto/vote.request.dto';
 import { PollService } from './poll.service';
@@ -20,7 +21,9 @@ describe('PollService', () => {
     });
 
     test('should get poll info', async () => {
-        await service.getPollNumber();
+        await service.makePoll(new makePollRequestDto(["aa", "bb", "cc"], "best string"));
+        let a = await service.getPollList();
+        console.log(a);
     });
 
     afterEach(() => {

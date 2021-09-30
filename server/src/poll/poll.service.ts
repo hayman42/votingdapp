@@ -4,6 +4,7 @@ import { Contract } from "web3-eth-contract";
 import fs from "fs";
 import { voteRequestDto } from "./dto/vote.request.dto";
 import { setStatusRequestDto } from "./dto/setstatus.request.dto";
+import { makePollRequestDto } from "./dto/makepoll.request.dto";
 
 @Injectable()
 export class PollService {
@@ -22,24 +23,27 @@ export class PollService {
         return cnt;
     }
 
-    async getPollList(): Promise<[string[], boolean][]> {
+    async getPollList(): Promise<[string[], string, boolean][]> {
         let cnt: number = await this.getPollNumber();
-        let pollList: [string[], boolean][] = await Promise.all(
+        let pollList: [string[], string, boolean][] = await Promise.all(
             [...Array(cnt).keys()].map(async i => await this.getPollInfo(i))
         );
         return pollList;
     }
 
-    async getPollInfo(poll: number): Promise<[string[], boolean]> {
-        let { candidates, open }: { candidates: string[], open: boolean }
+    async getPollInfo(poll: number): Promise<[string[], string, boolean]> {
+        let { candidates, content, open }: { candidates: string[], content: string, open: string }
             = await this.contract.methods.getPollInfo(poll)
                 .call({ from: process.env.DEPLOYER_ADDRESS, gas: 6721975 });
-        return [candidates.map(x => this.web3.utils.hexToAscii(x).replace(/\0/g, '')), open]
+        candidates = candidates.map(x => this.web3.utils.hexToAscii(x).replace(/\0/g, ''));
+        content = this.web3.utils.hexToAscii(content).replace(/\0/g, '');
+        return [candidates, content, Boolean(open)]
     }
 
-    async makePoll(candidates: string[]): Promise<string> {
+    async makePoll(requestDto: makePollRequestDto): Promise<string> {
+        let { candidates, content }: { candidates: string[], content: string } = requestDto;
         let arg = candidates.map(x => this.web3.utils.asciiToHex(x));
-        let { blockHash } = await this.contract.methods.makePoll(arg)
+        let { blockHash } = await this.contract.methods.makePoll(arg, this.web3.utils.asciiToHex(content))
             .send({ from: process.env.DEPLOYER_ADDRESS, gas: 6721975 });
         return blockHash;
     }

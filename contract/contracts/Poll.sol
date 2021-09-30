@@ -5,6 +5,7 @@ contract Poll {
     struct PollInfo {
         bytes32[] candidates;
         mapping(bytes32 => uint8) counts;
+        bytes32 content;
         bool open;
     }
     address public owner;
@@ -25,10 +26,11 @@ contract Poll {
         p.counts[name] += 1;
     } // 유저가 vote 하는 함수
 
-    function makePoll(bytes32[] memory candidates) public {
+    function makePoll(bytes32[] memory candidates, bytes32 content) public {
         require(msg.sender == owner, "this method is for owner only");
         PollInfo memory p;
         p.candidates = candidates;
+        p.content = content;
         p.open = true;
         _polls[_tail] = p;
         _tail++;
@@ -56,10 +58,15 @@ contract Poll {
     function getPollInfo(uint256 poll)
         public
         view
-        returns (bytes32[] memory candidates, bool open)
+        returns (
+            bytes32[] memory candidates,
+            bytes32 content,
+            bool open
+        )
     {
         require(msg.sender == owner, "this method is for owner only");
         candidates = _polls[poll].candidates;
+        content = _polls[poll].content;
         open = _polls[poll].open;
     } // 여론조사 정보를 가져오는 함수
 
