@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.question {
+  margin-left: 1em;
+  display: flex;
+  text-align: center;
+  height: 1em;
+  line-height: 1em;
+}
+
+.content {
+  margin-bottom: 1em;
+}
+
+.checkbox {
+  margin-bottom: 10em;
+}

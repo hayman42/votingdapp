@@ -4,19 +4,6 @@
   box-sizing: border-box;
 }
 
-/* Header Components */
-.header {
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  padding: 0.5em;
-}
-
-.title {
-  margin: 0;
-  color: votingBlack;
-}
-
 /* Login Components */
 .login {
   width: 100%;
