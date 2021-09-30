@@ -12,6 +12,7 @@ import TextField from "@mui/material/TextField";
 import axios from "axios";
 
 import { useHistory } from "react-router";
+import { Container } from "@mui/material";
 
 export default function Login() {
   // const history = useHistory();
@@ -33,9 +34,10 @@ export default function Login() {
   }
 
   return (
-    <section className={styles.login}>
+    <Container>
       <Header />
       <Box
+        className={styles.login}
         component="form"
         sx={{
           "& > :not(style)": { m: 1, width: "25ch" },
@@ -75,11 +77,11 @@ export default function Login() {
         endIcon={<SendIcon />}
         onClick={handleSubmit}
         // onClick={() => {
-        //   // history.push("/poll_list");
+        //   history.push("/poll_list");
         // }}
       >
         Confirm
       </Button>
-    </section>
+    </Container>
   );
 }
