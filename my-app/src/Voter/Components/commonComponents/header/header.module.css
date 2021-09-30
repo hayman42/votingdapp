@@ -1,4 +1,4 @@
-@value votingLightGrey, votingDarkGrey, votingWhite from '../../../common/colors.css';
+@value votingLightGrey, votingDarkGrey, votingWhite from '../../../../common/colors.css';
 
 /* Header Components */
 .header {

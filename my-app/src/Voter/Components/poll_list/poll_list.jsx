@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../header.jsx/header";
+import Header from "../commonComponents/header/header";
 import Question from "../question/question";
 import styles from "./poll_list.module.css";
 

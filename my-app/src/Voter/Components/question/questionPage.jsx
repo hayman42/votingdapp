@@ -1,6 +1,6 @@
 import React from "react";
 import Answer from "../answer/answer";
-import Header from "../header.jsx/header";
+import Header from "../commonComponents/header/header";
 import Question from "./question";
 import styles from "./question.module.css";
 

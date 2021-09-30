@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../header.jsx/header";
+import Header from "../commonComponents/header/header";
 
 import styles from "./login.module.css";
 

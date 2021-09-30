@@ -4,6 +4,7 @@ import Login from "./Components/login/login";
 import Poll_list from "./Components/poll_list/poll_list";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import QuestionPage from "./Components/question/questionPage";
+import Voter_result from "./Components/voter_result/voter_result";
 
 function Voter() {
   return (
@@ -19,7 +20,7 @@ function Voter() {
           <QuestionPage />
         </Route>
         <Route path="/voterResult">
-          <QuestionPage />
+          <Voter_result />
         </Route>
       </Switch>
     </Router>
