@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../commonComponents/header/header";
 
-import styles from "./login.module.css";
+import styles from "./register.module.css";
 
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
@@ -14,7 +14,7 @@ import axios from "axios";
 import { useHistory } from "react-router";
 import { Container } from "@mui/material";
 
-export default function Login() {
+export default function Register() {
   const history = useHistory();
 
   const [name, setName] = useState();
@@ -33,11 +33,13 @@ export default function Login() {
     console.log(name);
   }
 
+  // Name, Address, Password가 중복인지 아닌지 확인하는 코드 짜기
+
   return (
     <Container>
       <Header />
       <Box
-        className={styles.login}
+        className={styles.register}
         component="form"
         sx={{
           "& > :not(style)": { m: 1, width: "25ch" },
@@ -72,28 +74,16 @@ export default function Login() {
       </Box>
       <Container className={styles.button}>
         <Button
-          className={styles.register}
+          className={styles.complete}
           type="submit"
           variant="contained"
           endIcon={<SendIcon />}
           onClick={handleSubmit}
           onClick={() => {
-            history.push("/register");
+            history.push("/login");
           }}
         >
-          Register
-        </Button>
-        <Button
-          className={styles.signIn}
-          type="submit"
-          variant="contained"
-          endIcon={<SendIcon />}
-          onClick={handleSubmit}
-          onClick={() => {
-            history.push("/poll_list");
-          }}
-        >
-          Sign-In
+          Complete
         </Button>
       </Container>
     </Container>

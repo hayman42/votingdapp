@@ -1,0 +1,19 @@
+@value votingLightGrey, votingDarkGrey, votingWhite from '../../../common/colors.css';
+
+* {
+  box-sizing: border-box;
+}
+
+/* Register Components */
+.register {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  margin-left: 34em;
+}
