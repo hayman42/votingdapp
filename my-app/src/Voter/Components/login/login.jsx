@@ -15,7 +15,7 @@ import { useHistory } from "react-router";
 import { Container } from "@mui/material";
 
 export default function Login() {
-  // const history = useHistory();
+  const history = useHistory();
 
   const [name, setName] = useState();
   const [address, setAddress] = useState();
@@ -70,18 +70,32 @@ export default function Login() {
           onChange={e => setPassword(e.target.value)}
         />
       </Box>
-      <Button
-        className={styles.confirm}
-        type="submit"
-        variant="contained"
-        endIcon={<SendIcon />}
-        onClick={handleSubmit}
-        // onClick={() => {
-        //   history.push("/poll_list");
-        // }}
-      >
-        Confirm
-      </Button>
+      <Container className={styles.button}>
+        <Button
+          className={styles.register}
+          type="submit"
+          variant="contained"
+          endIcon={<SendIcon />}
+          onClick={handleSubmit}
+          onClick={() => {
+            history.push("/poll_list");
+          }}
+        >
+          Register
+        </Button>
+        <Button
+          className={styles.signIn}
+          type="submit"
+          variant="contained"
+          endIcon={<SendIcon />}
+          onClick={handleSubmit}
+          onClick={() => {
+            history.push("/poll_list");
+          }}
+        >
+          Sign-In
+        </Button>
+      </Container>
     </Container>
   );
 }
