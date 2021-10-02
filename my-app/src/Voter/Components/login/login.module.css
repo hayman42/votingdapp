@@ -5,6 +5,10 @@
 }
 
 /* Login Components */
+.container {
+  position: relative;
+}
+
 .login {
   width: 100%;
   height: 40vh;
@@ -15,9 +19,10 @@
 }
 
 .button {
-  margin-left: 27em;
+  position: absolute;
+  right: 22em;
 }
 
 .register {
-  margin-right: 3em;
+  margin-right: 1em;
 }

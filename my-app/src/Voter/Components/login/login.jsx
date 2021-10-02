@@ -70,7 +70,7 @@ export default function Login() {
           onChange={e => setPassword(e.target.value)}
         />
       </Box>
-      <Container className={styles.button}>
+      <div className={styles.button}>
         <Button
           className={styles.register}
           type="submit"
@@ -95,7 +95,7 @@ export default function Login() {
         >
           Sign-In
         </Button>
-      </Container>
+      </div>
     </Container>
   );
 }

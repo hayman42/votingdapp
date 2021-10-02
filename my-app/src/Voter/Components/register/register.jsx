@@ -12,7 +12,7 @@ import TextField from "@mui/material/TextField";
 import axios from "axios";
 
 import { useHistory } from "react-router";
-import { Container } from "@mui/material";
+import { Container, dividerClasses } from "@mui/material";
 
 export default function Register() {
   const history = useHistory();
@@ -22,7 +22,7 @@ export default function Register() {
   const [password, setPassword] = useState();
 
   async function handleSubmit() {
-    const res = await axios.get("http://localhost:5000/auth/signin", {
+    const res = await axios.get("http://localhost:5000/auth/register", {
       params: {
         name: name,
         address: address,
@@ -30,7 +30,6 @@ export default function Register() {
       },
     });
     console.log(res);
-    console.log(name);
   }
 
   // Name, Address, Password가 중복인지 아닌지 확인하는 코드 짜기
@@ -72,9 +71,8 @@ export default function Register() {
           onChange={e => setPassword(e.target.value)}
         />
       </Box>
-      <Container className={styles.button}>
+      <div className={styles.button}>
         <Button
-          className={styles.complete}
           type="submit"
           variant="contained"
           endIcon={<SendIcon />}
@@ -85,7 +83,7 @@ export default function Register() {
         >
           Complete
         </Button>
-      </Container>
+      </div>
     </Container>
   );
 }

@@ -5,6 +5,10 @@
 }
 
 /* Register Components */
+.container {
+  position: relative;
+}
+
 .register {
   width: 100%;
   height: 40vh;
@@ -15,5 +19,6 @@
 }
 
 .button {
-  margin-left: 34em;
+  position: absolute;
+  right: 21em;
 }

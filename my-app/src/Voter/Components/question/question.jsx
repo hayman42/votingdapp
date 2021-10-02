@@ -1,9 +1,6 @@
 import React, { Fragment } from "react";
 import styles from "./question.module.css";
-import Checkbox from "@mui/material/Checkbox";
-import { useHistory } from "react-router";
-
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+import Button from "@mui/material/Button";
 
 const data = [
   "지지하고 계시는 정당은?",
@@ -13,16 +10,22 @@ const data = [
 ];
 
 export default function Question() {
-  const history = useHistory();
-
   return (
     // Edit Question Page에서 Submit할 때마다 여기서 자동으로 만들어지게끔 만들자
     <section>
       {data.map((x, i) => (
         <Fragment>
           <div className={styles.question}>
-            <h2 className={styles.number}>{i + 1}. &nbsp;</h2>
-            <h3 className={styles.content}> {x}</h3>
+            <Button
+              variant="text"
+              size="large"
+              onClick={() => {
+                // click -> 관련 질문 컴포넌트로 넘어가게끔
+                alert("clicked");
+              }}
+            >
+              {i + 1}. {x}
+            </Button>
           </div>
         </Fragment>
       ))}
