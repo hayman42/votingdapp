@@ -1,11 +1,10 @@
 import React from "react";
-import styles from "./Voter.module.css";
-import Login from "./Components/login/login";
 import Poll_list from "./Components/poll_list/poll_list";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Question from "./Components/question/question";
-import Register from "./Components/register/register";
 import Manager from "../Manager/Manager";
+import SignIn from "./Components/login/SignIn";
+import SignUp from "./Components/register/signUp";
 
 function Voter() {
   return (
@@ -15,10 +14,10 @@ function Voter() {
           <Manager />
         </Route>
         <Route path="/register">
-          <Register />
+          <SignUp />
         </Route>
         <Route path={["/", "/login"]} exact>
-          <Login />
+          <SignIn />
         </Route>
         <Route path="/poll_list">
           <Poll_list />

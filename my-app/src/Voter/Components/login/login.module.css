@@ -18,7 +18,11 @@
   align-items: center;
 }
 
+.loginPage {
+  position: relative;
+}
+
 .button {
   position: absolute;
-  right: 22em;
+  right: 10em;
 }
