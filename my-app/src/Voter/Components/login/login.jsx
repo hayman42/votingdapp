@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../commonComponents/header/header";
 
 import styles from "./login.module.css";
@@ -30,11 +30,10 @@ export default function Login() {
       },
     });
     console.log(res);
-    console.log(name);
   }
 
   return (
-    <Container>
+    <Fragment>
       <Header />
       <Box
         className={styles.login}
@@ -96,6 +95,6 @@ export default function Login() {
           Sign-In
         </Button>
       </div>
-    </Container>
+    </Fragment>
   );
 }

@@ -5,11 +5,15 @@ import Poll_list from "./Components/poll_list/poll_list";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Question from "./Components/question/question";
 import Register from "./Components/register/register";
+import Manager from "../Manager/Manager";
 
 function Voter() {
   return (
     <Router>
       <Switch>
+        <Route path="/edit">
+          <Manager />
+        </Route>
         <Route path="/register">
           <Register />
         </Route>
