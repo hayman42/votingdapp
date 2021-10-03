@@ -22,7 +22,7 @@ export default function Manager() {
                     >
                         <Tab value={0} label="Upload" />
                         <Tab value={1} label="Result" />
-                        <Tab value={2} label="Content" />
+                        <Tab value={2} label="Controll" />
                     </Tabs>
                 </Grid>
             </AppBar>
