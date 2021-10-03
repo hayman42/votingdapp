@@ -1,14 +1,21 @@
 import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from "@mui/material";
-import React, { Fragment, useState } from "react";
-import { Box } from "@mui/system";
-
+import React, { Fragment, useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Mypage() {
-    const data = [
-        { poll: "좋아하는 과일", name: "사과", win: true },
-        { poll: "좋아하는 색깔", name: "노랑", win: true },
-        { poll: "좋아하는 언어", name: "C++", win: false },
-    ];
+    const [data, setData] = useState([])
+    useEffect(() => {
+        async function fetch() {
+            const res = await axios.get("http://localhost:5000/user/info", {
+                params: {
+                    name: "asdf"
+                }
+            });
+            const { voteinfo } = res.data;
+            setData(voteinfo);
+        }
+        fetch();
+    }, []);
 
     return (
         <Container>
@@ -19,7 +26,7 @@ export default function Mypage() {
                         <TableHead>
                             <TableRow>
                                 {
-                                    ["#", "조사", "선택한 후보", "승/패"].map((x, i) =>
+                                    ["#", "날짜", "조사", "선택한 후보", "승/패"].map((x, i) =>
                                         <TableCell align="left" key={i}><b>{x}</b></TableCell>)
                                 }
                             </TableRow>
@@ -32,13 +39,16 @@ export default function Mypage() {
                                             {i + 1}
                                         </TableCell>
                                         <TableCell align="left">
-                                            {x.poll}
+                                            {x.createdAt}
                                         </TableCell>
                                         <TableCell align="left">
-                                            {x.name}
+                                            {x.content}
                                         </TableCell>
                                         <TableCell align="left">
-                                            {x.win ? "승" : "패"}
+                                            {x.candidate}
+                                        </TableCell>
+                                        <TableCell align="left">
+                                            {x.win}
                                         </TableCell>
                                     </TableRow>
                                 )

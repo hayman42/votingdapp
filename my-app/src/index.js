@@ -2,13 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./index.css";
+import Manager from "./Manager/Manager";
+import Mypage from "./Voter/Mypage";
 import Voter from "./Voter/Voter";
 
 // import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Voter />
+    <Mypage />
   </React.StrictMode>,
   document.getElementById("root")
 );

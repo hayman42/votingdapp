@@ -73,7 +73,7 @@ export default function SignIn() {
               fullWidth
               id="Name"
               label="Name"
-              name="Name"
+              name="name"
               autoComplete="Name"
               autoFocus
             />
@@ -83,7 +83,7 @@ export default function SignIn() {
               fullWidth
               id="Address"
               label="Address"
-              name="Address"
+              name="address"
               autoComplete="Address"
               autoFocus
             />
@@ -106,9 +106,9 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                history.push("/poll_list");
-              }}
+            // onClick={() => {
+            //   history.push("/poll_list");
+            // }}
             >
               Sign In
             </Button>

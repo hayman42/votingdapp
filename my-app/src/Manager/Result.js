@@ -4,14 +4,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Box } from "@mui/system";
 import axios from "axios";
 
-// const data = [
-//     { name: "aa", vote: 32, rate: 33 },
-//     { name: "bb", vote: 32, rate: 33 },
-//     { name: "cc", vote: 33, rate: 34 },
-// ];
-
-// const question = "가장 좋아하는 알파벳은?";
-
 export default function Result() {
     const [poll, setPoll] = useState(null);
     const [data, setData] = useState(null);
