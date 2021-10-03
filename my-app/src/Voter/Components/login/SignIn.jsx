@@ -12,6 +12,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useHistory } from "react-router";
 
+import axios from "axios";
+
 function Copyright(props) {
   return (
     <Typography
@@ -35,15 +37,37 @@ const theme = createTheme();
 export default function SignIn() {
   const history = useHistory();
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      name: data.get("name"),
-      address: data.get("address"),
-      password: data.get("password"),
+
+    const res = await axios.get("http://localhost:5000/auth/signin", {
+      params: {
+        name: data.get("name"),
+        address: data.get("address"),
+        password: data.get("password"),
+      },
     });
+    const dep = await axios.get("http://localhost:5000/auth/isdeployer", {
+      params: {
+        address: data.get("address"),
+      },
+    });
+
+    console.log(res.data);
+    console.log(dep.data);
+    if (res.data) {
+      // 로그인 성공
+      if (dep.data) {
+        // manager.js로 이동
+        history.push("/edit");
+      } else {
+        // poll_list.jsx로 이동
+        history.push("/poll_list");
+      }
+    } else {
+      // 로그인 실패
+    }
   };
 
   return (
@@ -106,9 +130,6 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                history.push("/poll_list");
-              }}
             >
               Sign In
             </Button>
