@@ -3,7 +3,6 @@ import { AppModule } from 'src/app.module';
 import { makePollRequestDto } from 'src/poll/dto/makepoll.request.dto';
 import { voteRequestDto } from 'src/poll/dto/vote.request.dto';
 import { PollService } from 'src/poll/poll.service';
-import { infoResponseDto } from './dto/user.info.response.dto';
 import { UserService } from './user.service';
 
 describe('UserService', () => {
