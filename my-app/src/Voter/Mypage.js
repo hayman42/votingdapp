@@ -49,6 +49,7 @@ export default function Mypage() {
                                         </TableCell>
                                         <TableCell align="left">
                                             {x.win}
+
                                         </TableCell>
                                     </TableRow>
                                 )
