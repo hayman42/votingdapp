@@ -29,7 +29,12 @@ export class PollController {
     }
 
     @Get("result")
-    async result(poll: number): Promise<[string[], number[]]> {
+    async result(@Query("poll") poll: number): Promise<[string[], number[]]> {
         return await this.pollService.getResult(poll);
+    }
+
+    @Get("info")
+    async info(@Query("poll") poll: number): Promise<[string[], string, boolean]> {
+        return await this.pollService.getPollInfo(poll);
     }
 }
