@@ -5,6 +5,7 @@ import Question from "./Components/question/question";
 import Manager from "../Manager/Manager";
 import SignIn from "./Components/login/SignIn";
 import SignUp from "./Components/register/signUp";
+import Mypage from "./Mypage";
 
 function Voter() {
   return (
@@ -12,6 +13,9 @@ function Voter() {
       <Switch>
         <Route path="/edit">
           <Manager />
+        </Route>
+        <Route path="/myPage">
+          <Mypage />
         </Route>
         <Route path="/register">
           <SignUp />

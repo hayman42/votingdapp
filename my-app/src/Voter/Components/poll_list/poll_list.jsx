@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import MenuBar from "../commonComponents/menuBar/menuBar";
 import Header from "../commonComponents/header/header";
@@ -10,16 +10,28 @@ import Button from "@mui/material/Button";
 
 import { useHistory } from "react-router";
 
-// Poll List에서 받아온 data를 여기에 저장
-const data = [
-  "지지하고 있는 정당은?",
-  "20대이신가요?",
-  "대학생이신가요?",
-  "좋아하는 과일은?",
-];
+import axios from "axios";
+
+// const data = [
+//   "지지하고 있는 정당은?",
+//   "20대이신가요?",
+//   "대학생이신가요?",
+//   "좋아하는 과일은?",
+// ];
 
 export default function Poll_list() {
   const history = useHistory();
+
+  // useEffect와 Hook 그리고 axios를 통해서 data를 저장하자
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    async function fetch() {
+      const res = await axios.get("http://localhost:5000/poll/list");
+      setData(res.data);
+    }
+    fetch();
+  }, []);
 
   return (
     <Container>
@@ -29,7 +41,7 @@ export default function Poll_list() {
 
       <div className={styles.list}>
         {data.map((x, i) => (
-          <Fragment>
+          <Fragment key={i}>
             <div className={styles.question}>
               <Button
                 variant="text"
@@ -38,7 +50,7 @@ export default function Poll_list() {
                   history.push("/question");
                 }}
               >
-                {i + 1}. {x}
+                {i + 1}. {x[1]}
               </Button>
             </div>
           </Fragment>

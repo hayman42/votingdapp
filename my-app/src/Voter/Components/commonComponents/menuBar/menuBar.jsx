@@ -27,7 +27,7 @@ export default function MenuBar() {
         </Button>
         <Button
           onClick={() => {
-            history.push("/poll_list");
+            history.push("/myPage");
           }}
         >
           My Page
