@@ -10,6 +10,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useHistory } from "react-router";
+
+import axios from "axios";
 
 function Copyright(props) {
   return (
@@ -32,14 +35,24 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = event => {
+  const history = useHistory();
+
+  const handleSubmit = async event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+
+    try {
+      const res = await axios.get("http://localhost:5000/auth/register", {
+        params: {
+          name: data.get("name"),
+          password: data.get("password"),
+        },
+      });
+    } catch {
+      alert("회원가입되셨습니다!");
+    } finally {
+      history.push("/login");
+    }
   };
 
   return (

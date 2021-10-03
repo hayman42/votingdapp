@@ -14,9 +14,10 @@ import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 
 import { useHistory } from "react-router";
+import Header from "./Components/commonComponents/header/header";
+import MenuBar from "./Components/commonComponents/menuBar/menuBar";
 
 export default function Mypage() {
-  const history = useHistory();
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetch() {
@@ -33,6 +34,8 @@ export default function Mypage() {
 
   return (
     <Container>
+      <Header />
+      <MenuBar />
       <h3>My page</h3>
       <Fragment>
         <TableContainer component={Paper}>
