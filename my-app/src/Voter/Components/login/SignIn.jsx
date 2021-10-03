@@ -41,32 +41,29 @@ export default function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    const res = await axios.get("http://localhost:5000/auth/signin", {
-      params: {
-        name: data.get("name"),
-        address: data.get("address"),
-        password: data.get("password"),
-      },
-    });
+    try {
+      const res = await axios.get("http://localhost:5000/auth/signin", {
+        params: {
+          name: data.get("name"),
+          address: data.get("address"),
+          password: data.get("password"),
+        },
+      });
+    } catch {
+      // 로그인 실패
+    }
+
     const dep = await axios.get("http://localhost:5000/auth/isdeployer", {
       params: {
         address: data.get("address"),
       },
     });
-
-    console.log(res.data);
-    console.log(dep.data);
-    if (res.data) {
-      // 로그인 성공
-      if (dep.data) {
-        // manager.js로 이동
-        history.push("/edit");
-      } else {
-        // poll_list.jsx로 이동
-        history.push("/poll_list");
-      }
+    if (dep.data) {
+      // manager.js로 이동
+      history.push("/edit");
     } else {
-      // 로그인 실패
+      // poll_list.jsx로 이동
+      history.push("/poll_list");
     }
   };
 
@@ -95,7 +92,7 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="Name"
+              id="name"
               label="Name"
               name="name"
               autoComplete="Name"
@@ -105,7 +102,7 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="Address"
+              id="address"
               label="Address"
               name="address"
               autoComplete="Address"
