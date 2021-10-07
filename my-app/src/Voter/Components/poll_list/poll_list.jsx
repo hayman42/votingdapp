@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import { useHistory } from "react-router";
 
 import axios from "axios";
+import Question from "../question/question";
 
 export default function Poll_list() {
   const history = useHistory();
@@ -20,8 +21,9 @@ export default function Poll_list() {
   useEffect(() => {
     async function fetch() {
       const res = await axios.get("http://localhost:5000/poll/list");
+      const event = data.map((x, i) => [{ title: x[1], index: { i } }]);
+      console.log(event);
       setData(res.data);
-      console.log(res.data);
     }
     fetch();
   }, []);
